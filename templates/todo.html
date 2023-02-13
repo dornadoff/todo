@@ -69,21 +69,22 @@
         {{i.batafsil}}
         <hr/>
         {{i.holat}}
-        <br />
+        <br/>
         <button class="btn btn-primary" style="float: right;"><span class="glyphicon glyphicon-trash"></span><a href="#">O'chirish</a></button>
-        {% endfor %}
+
       </div>
+      {% endfor %}
     </div>
     <div class="col-md-1"> </div>
     <div class="col-md-3" >
       <div  class="submit_form">
-      <form action="#" method="post"> {% csrf_token %}
+      <form action="/todo/" method="post"> {% csrf_token %}
         <input type="text" name="nomi" placeholder="Nomi">
         <input type="date" name="sanasi">
         <input type="text" name="batafsil" placeholder="Batafsil">
         <input type="text" name="holat" placeholder="Holati">
         <center>
-        <button type="submit" class="btn btn-default">Topshirish</button>
+        <button type="submit">Topshirish</button>
       </center>
       </form>
     </div>
