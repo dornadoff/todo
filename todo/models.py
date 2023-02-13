@@ -1,3 +1,7 @@
 from django.db import models
 
-# Create your models here.
+class Todo(models.Model):
+    nomi = models.CharField(max_length=100)
+    sanasi = models.DateField()
+    batafsil = models.CharField(max_length=500)
+    holat = models.CharField(max_length=100)
