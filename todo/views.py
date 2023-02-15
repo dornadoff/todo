@@ -1,16 +1,19 @@
 from django.shortcuts import render, redirect
 from .models import *
+from django.contrib.auth import authenticate, login, logout
 def todo(request):
-    if request.method == "POST":
-        Todo.objects.create(
-            nomi = request.POST.get("nomi"),
-            sanasi = request.POST.get("sanasi"),
-            batafsil = request.POST.get("batafsil"),
-            holat = request.POST.get("holat")
-        )
-        return redirect("/todo/")
-    data = {"todo":Todo.objects.all()}
-    return render(request, "todo.html", data)
+    if request.user.is_authenticated:
+        if request.method == "POST":
+            Todo.objects.create(
+                nomi = request.POST.get("nomi"),
+                sanasi = request.POST.get("sanasi"),
+                batafsil = request.POST.get("batafsil"),
+                holat = request.POST.get("holat")
+            )
+            return redirect("/todo/")
+        data = {"todo":Todo.objects.all()}
+        return render(request, "todo.html", data)
+    return redirect("/")
 
 def todo_ochirish(request, son):
     Todo.objects.filter(id=son).delete()
@@ -29,5 +32,16 @@ def todo_edit(request, son):
     data = {"todo":Todo.objects.get(id=son)}
     return render(request, "todo_edit.html", data)
 
-def login(request):
+def loginview(request):
+    if request.method == "POST":
+        user = authenticate(username=request.POST.get("username"),
+                     password=request.POST.get("password"))
+        if user is None:
+            return redirect("/")
+        login(request, user)
+        return redirect("/todo")
     return render(request, "login.html")
+
+def logoutview(request):
+    logout(request)
+    return redirect("/")
