@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <meta charset="UTF-8">
+    <meta charset="UTF-8" />
     <title>Login - To-Do List</title>
     <style>
       /* Add some styling to the page */
@@ -49,30 +49,20 @@
       input[type="submit"]:hover {
         background-color: #333;
       }
-      input[type="register"] {
-        background-color: #555;
-        color: #fff;
-        font-size: 18px;
-        padding: 10px 20px;
-        border-radius: 5px;
-        border: none;
-        cursor: pointer;
-      }
-      input[type="register"]:hover {
-        background-color: #333;
-      }
-
     </style>
   </head>
   <body>
-    <h1>Login - To-Do List</h1>
-    <form method="post"> {% csrf_token %}
+    <h1>Register - To-Do List</h1>
+    <form method="post">
+      {% csrf_token %}
       <label for="username">Username:</label>
-      <input type="text" id="username" name="username" required><br><br>
+      <input type="text" id="username" name="l" required /><br /><br />
       <label for="password">Password:</label>
-      <input type="password" id="password" name="password" required><br><br>
-      <input type="submit" value="Login">
-      <a href="/register/"> <input type="register" value="Register"> </a>
+      <input type="password" id="password" name="p" required /><br /><br />
+      <label for="c_password">Confirm Password:</label>
+      <input type="password" id="c_password" name="cp" required /><br /><br />
+
+      <input type="submit" value="Login" />
     </form>
   </body>
 </html>

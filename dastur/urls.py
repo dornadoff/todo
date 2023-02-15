@@ -23,5 +23,6 @@ urlpatterns = [
     path("todo/ochirish/<int:son>/", todo_ochirish),
     path("todo/edit/<int:son>/", todo_edit),
     path("", loginview),
-    path("logout/", logoutview)
+    path("logout/", logoutview),
+    path("register/", register)
 ]
