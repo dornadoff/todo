@@ -28,3 +28,6 @@ def todo_edit(request, son):
 
     data = {"todo":Todo.objects.get(id=son)}
     return render(request, "todo_edit.html", data)
+
+def login(request):
+    return render(request, "login.html")
