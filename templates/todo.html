@@ -15,7 +15,7 @@
 
    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.5),
                0 6px 20px 0 rgba(0,0,0,0.39);
-   background: DarkOrange;
+   background: white;
    margin-bottom : 5%;
    border-radius: 25px;
    padding : 2%;
@@ -24,14 +24,14 @@
    text-overflow: ellipsis;
   }
   .card:hover{
-    background: lightblue;
+    background: white;
   }
 
   .submit_form{
 
     text-align: center;
     padding: 3%;
-    background: DarkOrange;
+    background: black<br>;
     border-radius: 25px;
     box-shadow: 0 4px 8px 0 rgba(0,0,0,0.4),
                 0 6px 20px 0 rgba(0,0,0,0.36);
@@ -58,9 +58,10 @@
   <div class="row">
 
     <div class="col-md-8">
+{% for i in todo %}
       <div class="card">
-        {% for i in todo %}
-        <center><b>Title of the todo</b></center>
+
+        <center><b>{{i.nomi}}</b></center>
         <hr/>
         {{i.ism}}
         <hr/>
@@ -70,19 +71,20 @@
         <hr/>
         {{i.holat}}
         <br/>
-        <button class="btn btn-primary" style="float: right;"><span class="glyphicon glyphicon-trash"></span><a href="#">O'chirish</a></button>
+        <button class="btn btn-primary" style="float: right;"><span class="glyphicon glyphicon-trash"></span><a href="/todo/ochirish/{{i.id}}/">O'chirish</a></button>
 
       </div>
-      {% endfor %}
+ {% endfor %}
     </div>
+
     <div class="col-md-1"> </div>
     <div class="col-md-3" >
       <div  class="submit_form">
       <form action="/todo/" method="post"> {% csrf_token %}
-        <input type="text" name="nomi" placeholder="Nomi">
-        <input type="date" name="sanasi">
-        <input type="text" name="batafsil" placeholder="Batafsil">
-        <input type="text" name="holat" placeholder="Holati">
+        <input type="text" name="nomi" placeholder="Nomi"><br>
+        <input type="date" name="sanasi"><br>
+        <input type="text" name="batafsil" placeholder="Batafsil"><br>
+        <input type="text" name="holat" placeholder="Holati"><br>
         <center>
         <button type="submit">Topshirish</button>
       </center>

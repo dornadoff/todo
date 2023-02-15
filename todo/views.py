@@ -11,3 +11,7 @@ def todo(request):
         return redirect("/todo/")
     data = {"todo":Todo.objects.all()}
     return render(request, "todo.html", data)
+
+def todo_ochirish(request, son):
+    Todo.objects.filter(id=son).delete()
+    return redirect("/todo/")

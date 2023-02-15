@@ -20,4 +20,5 @@ from todo.views import *
 urlpatterns = [
     path('admin/', admin.site.urls),
     path("todo/", todo),
+    path("todo/ochirish/<int:son>/", todo_ochirish)
 ]
