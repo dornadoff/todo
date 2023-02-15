@@ -33,8 +33,8 @@
     padding: 3%;
     background: black<br>;
     border-radius: 25px;
-    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.4),
-                0 6px 20px 0 rgba(0,0,0,0.36);
+    box-shadow: 0 4px 8px 0 rgba(1,1,1,0.4),
+                0 6px 20px 0 rgba(1,1,1,0.36);
   }
   </style>
 
@@ -63,8 +63,6 @@
 
         <center><b>{{i.nomi}}</b></center>
         <hr/>
-        {{i.ism}}
-        <hr/>
         {{i.sanasi}}
         <hr/>
         {{i.batafsil}}
@@ -72,6 +70,7 @@
         {{i.holat}}
         <br/>
         <button class="btn btn-primary" style="float: right;"><span class="glyphicon glyphicon-trash"></span><a href="/todo/ochirish/{{i.id}}/">O'chirish</a></button>
+        <button class="btn btn-primary" style="float: right;"><span class="glyphicon glyphicon-trash"></span><a href="/todo/edit/{{i.id}}/">O'zgartirish</a></button>
 
       </div>
  {% endfor %}

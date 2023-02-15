@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{{todo.nom}}</title>
+</head>
+<body>
+    <form method="post"> {% csrf_token %}
+        <label>Nom: </label>
+          <input type="text" name="nom" value="{{todo.nomi}}"><br>
+        <label>Sanaso: </label>
+          <input type="date" name="sanasi" value="{{todo.sanasi}}"><br>
+        <label>Batafsil: </label>
+          <input type="text" name="batafsil" value="{{todo.batafsil}}"><br>
+        <label>Holat: </label>
+          <input type="text" name="holat" value="{{todo.holat}}"><br>
+        <button type="submit">Saqlash</button>
+
+    </form>
+</body>
+</html>
